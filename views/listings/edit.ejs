@@ -1,0 +1,80 @@
+<%layout("/layouts/boilerplate")-%>
+
+  <br>
+  <div class="row">
+    <div class="col-8 offset-2">
+      <h3>Edit your Listing</h3>
+      <br>
+
+      <form method="POST" action="/listings/<%= listing._id %>?_method=PUT" class="needs-validation" id="editListingForm" novalidate>
+
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input name="listing[title]" value="<%= listing.title %>" type="text" class="form-control" required />
+          <div class="invalid-feedback">Please provide a title.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea name="listing[description]" class="form-control" required><%= listing.description %></textarea>
+          <div class="invalid-feedback">Please provide a description.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Image</label>
+          <input name="listing[image]" value="<%= listing.image.url %>" type="text" class="form-control" required />
+          <div class="invalid-feedback">Please provide an image URL.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input name="listing[price]" value="<%= listing.price %>" type="number" class="form-control" required />
+          <div class="invalid-feedback">Please enter a valid price.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="country" class="form-label">Country</label>
+          <input name="listing[country]" value="<%= listing.country %>" type="text" class="form-control" required />
+          <div class="invalid-feedback">Please provide the country.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input name="listing[location]" value="<%= listing.location %>" type="text" class="form-control" required />
+          <div class="invalid-feedback">Please provide a location.</div>
+        </div>
+
+        <br>
+
+        <!-- Buttons side by side -->
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-dark">Edit</button>
+          <form method="POST" action="/listings/<%= listing._id %>?_method=DELETE" style="display: inline;">
+            <button class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+
+        <br>
+        <br>
+
+      </form>
+    </div>
+  </div>
+
+<script>
+  // Custom Bootstrap validation
+  (function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+
+    Array.prototype.slice.call(forms).forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
+</script>

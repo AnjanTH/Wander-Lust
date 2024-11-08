@@ -1,0 +1,114 @@
+/*Navbar*/
+.navbar{
+    height: 5rem;
+    background-color: rgb(243, 246, 248);
+}
+.fa-compass{
+    color: #fe424d;
+    font-size: 2rem;
+}
+.nav-link{
+   color: #222222 !important;
+}
+
+/*Footer*/
+html, body {
+    height: 100%;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  footer {
+    margin-top: auto;
+    width: 100%;
+  }
+  
+
+.f-info-links a{
+    text-decoration: none;
+    color: #222222;
+    margin: 5px;
+}
+.f-info-links:hover{
+    text-decoration: underline;
+}
+.f-info-links{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+
+}
+.f-info-socials{
+ width: 100%;
+
+ 
+}
+.f-info-socials i{
+    margin-right: 1rem;
+    font-size: 1.5rem;
+}
+
+.f-info{
+    display: flex;
+   text-align: center;
+    height: 8rem;
+    background-color: #ebebeb;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-content: space-evenly;
+}
+/*cards*/
+.card{
+    border: none !important;
+    margin-bottom: 2rem;
+}
+
+.card-img-top{
+    border-radius: 1rem;
+    width: 100% !important;
+    object-fit: cover;
+}
+.card-body{
+    padding: 0 !important;
+}
+.card-text p{
+    font-weight: 400 !important;
+}
+.listing-links{
+    text-decoration: none;
+}
+
+/*cards effects*/
+.card-img-overlay{
+    opacity: 0;
+}
+.card-img-overlay:hover{
+    opacity: 0.2 !important;
+    background-color: rgb(255, 255, 255) !important;
+}
+
+/*New page*/
+.add-btn{
+    background-color: #fe424d !important;
+    border: none !important;
+}
+
+/*show page*/
+
+.off{
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex{
+    display: flex;
+    justify-content: space-between;
+    
+
+}

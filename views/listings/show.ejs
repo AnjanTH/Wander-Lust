@@ -1,0 +1,80 @@
+<%layout("/layouts/boilerplate")-%>
+  <div class="off mt-3">
+
+    <div class="mt-3 col-8 mx-auto">
+
+      <br>
+      <h3 class="mt-3 text-center">Listing Details</h3>
+      <br>
+      
+      <!-- Card with fade-in animation -->
+      <div class="card mb-3 animate-card">
+        <img src="<%=listing.image.url%>" class="card-img-top" alt="Listing Image" style="height: 20rem; width: 100%; object-fit: cover; border-radius: 10px 10px 0 0;">
+        
+        <div class="card-body">
+          <h5 class="card-title mt-3"><%= listing.title %></h5>
+          <p class="card-text mb-3"><%= listing.description %></p>
+          <p class="card-text mb-3">&#8377; <%= listing.price.toLocaleString("en-IN") %></p>
+          <p class="card-text mb-3"><%= listing.location %></p>
+          <p class="card-text"><%= listing.country %></p>
+          <p class="card-text mb-3"><small class="text-muted">Last updated 3 mins ago</small></p>
+        </div>
+      </div>
+
+      <br />
+
+      <!-- Flexbox for buttons with hover effects -->
+      <div class="d-flex justify-content-between mb-3">
+        <a class="btn btn-dark btn-animate" href="/listings/<%= listing._id %>/edit" style="width: 100px; height: 40px;">Edit</a>
+      
+        <form method="POST" action="/listings/<%=listing._id%>?_method=DELETE">
+          <button class="btn btn-danger btn-animate" style="width: 100px; height: 40px;">Delete</button>
+        </form>
+      </div>
+   
+    </div>
+  </div>
+
+<!-- Add some CSS for animations -->
+<style>
+  /* Card fade-in animation */
+  .animate-card {
+    animation: fadeIn 1s ease-in-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Button hover effects */
+  .btn-animate {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .btn-animate:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Center card image and make it look better */
+  .card-img-top {
+    border-radius: 10px;
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .col-8 {
+      width: 100%;
+    }
+    .card-img-top {
+      height: auto;
+    }
+  }
+</style>

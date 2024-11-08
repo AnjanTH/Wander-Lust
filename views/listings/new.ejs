@@ -1,0 +1,70 @@
+<% layout("/layouts/boilerplate") %>
+<br>
+<div class="row">
+  <div class="col-8 offset-2">
+    <h3>Create a New Listing</h3>
+    <br>
+    <form method="POST" action="/listings" class="needs-validation" id="listingForm" novalidate>
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input class="form-control" id="title" name="listing[title]" type="text" placeholder="Enter a catchy title" required />
+        <div class="invalid-feedback">Please enter a title.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" id="description" class="form-control" required></textarea>
+        <div class="invalid-feedback">Please provide a description.</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input class="form-control" id="image" name="listing[image]" type="text" />
+      </div>
+
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="price" class="form-label">Price</label>
+          <input class="form-control" id="price" name="listing[price]"  placeholder="1500" required />
+          <div class="invalid-feedback">Please enter a valid price.</div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+          <label for="country" class="form-label">Country</label>
+          <input class="form-control" id="country" name="listing[country]" type="text" placeholder="India" required />
+          <div class="invalid-feedback">Please provide the country.</div>
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="location" class="form-label">Location</label>
+        <input class="form-control" id="location" name="listing[location]" type="text" placeholder="Karnataka" required />
+        <div class="invalid-feedback">Please provide a location.</div>
+      </div>
+
+      <br>
+      <button class="btn btn-dark add-btn" type="submit">Add</button>
+      <br>
+      <br>
+    </form>
+  </div>
+</div>
+
+<script>
+  
+  (function () {
+    'use strict'
+    var forms = document.querySelectorAll('.needs-validation')
+
+    Array.prototype.slice.call(forms).forEach(function (form) {
+      form.addEventListener('submit', function (event) {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
+</script>
